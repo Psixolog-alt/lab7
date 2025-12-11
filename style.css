@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 80px; /* Отступ для фиксированной шапки */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка сайта */
+header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #e63946;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    font-size: 32px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.nav-btn:hover {
+    background-color: #d62839;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+/* Секция с фото и описанием */
+.section {
+    padding: 80px 0;
+}
+
+.section-dark {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.section-light {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.content-block {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.content-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.content-img {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.content-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.content-img:hover img {
+    transform: scale(1.03);
+}
+
+.content-text {
+    flex: 1;
+}
+
+.content-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #e63946;
+}
+
+.section-dark .content-text h2 {
+    color: #4cc9f0;
+}
+
+.content-text p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.section-dark .content-text p {
+    color: #ddd;
+}
+
+.more-btn {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.more-btn:hover {
+    background-color: #d62839;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+.section-dark .more-btn {
+    background-color: #4cc9f0;
+}
+
+.section-dark .more-btn:hover {
+    background-color: #3aa8d8;
+    box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
+}
+
+.more-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    margin-top: 20px;
+    padding-left: 20px;
+    border-left: 3px solid #e63946;
+    opacity: 0;
+}
+
+.section-dark .more-text {
+    border-left-color: #4cc9f0;
+}
+
+.more-text.active {
+    max-height: 500px; /* Увеличили высоту */
+    opacity: 1;
+}
+
+/* Промежуточное фото с информацией */
+.intermediate-section {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.intermediate-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: 1;
+}
+
+.intermediate-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.intermediate-content h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.intermediate-content p {
+    font-size: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Три столбца */
+.three-columns {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 80px 0;
+}
+
+.columns-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #4cc9f0;
+}
+
+.columns-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    min-width: 300px;
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.column:hover {
+    transform: translateY(-10px);
+}
+
+.column i {
+    font-size: 40px;
+    color: #4cc9f0;
+    margin-bottom: 20px;
+}
+
+.column h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4cc9f0;
+}
+
+.column p {
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+/* Модальное окно каталога */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background-color: #e63946;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.catalog-category {
+    margin-bottom: 25px;
+}
+
+.catalog-category h3 {
+    color: #e63946;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.catalog-category ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.catalog-category li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.catalog-category li:last-child {
+    border-bottom: none;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .content-block {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .content-block.reverse {
+        flex-direction: column;
+    }
+    
+    .content-img, .content-text {
+        width: 100%;
+    }
+    
+    .intermediate-content h2 {
+        font-size: 32px;
+    }
+    
+    .intermediate-content p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .section {
+        padding: 50px 0;
+    }
+    
+    .intermediate-section {
+        height: 400px;
+    }
+    
+    .columns-container {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+}
